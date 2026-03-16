@@ -1,0 +1,9 @@
+[
+  {
+    "modid": "${mod_id}",
+    "name": "${mod_name}",
+    "description": "/pracfix <toggle|debug>",
+    "version": "${mod_version}",
+    "authorList": ["Diabet"]
+  }
+]
