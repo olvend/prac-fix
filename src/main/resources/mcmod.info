@@ -2,7 +2,7 @@
   {
     "modid": "${mod_id}",
     "name": "${mod_name}",
-    "description": "A mod that fixes /prac positions being off on parkour servers",
+    "description": "A mod that fixes inaccurate /prac positions on parkour servers",
     "version": "${mod_version}",
     "url": "https://github.com/olvend/prac-fix",
     "authorList": ["Diabet"]
