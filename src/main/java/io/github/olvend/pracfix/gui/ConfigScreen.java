@@ -22,7 +22,7 @@ public class ConfigScreen extends GuiScreen {
                 0,
                 width / 2 - 155,
                 height / 6 - 12,
-                "pracfix.config.fixPrac",
+                "pracfix.gui.fix_prac",
                 () -> PracFix.config.fixPrac,
                 value -> PracFix.config.fixPrac = value
         ));
@@ -31,7 +31,7 @@ public class ConfigScreen extends GuiScreen {
                 0,
                 width / 2 + 5,
                 height / 6 - 12,
-                "pracfix.config.debugPositionUpdates",
+                "pracfix.gui.debug_position_updates",
                 () -> PracFix.config.debugPositionUpdates,
                 value -> PracFix.config.debugPositionUpdates = value
         ));
