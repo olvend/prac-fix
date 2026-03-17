@@ -1,5 +1,7 @@
 package io.github.olvend.pracfix.gui;
 
+import io.github.olvend.pracfix.PracFix;
+import io.github.olvend.pracfix.gui.widget.BooleanConfigButton;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -16,6 +18,24 @@ public class ConfigScreen extends GuiScreen {
 
     @Override
     public void initGui() {
+        buttonList.add(new BooleanConfigButton(
+                0,
+                width / 2 - 155,
+                height / 6 - 12,
+                "pracfix.config.fixPrac",
+                () -> PracFix.config.fixPrac,
+                value -> PracFix.config.fixPrac = value
+        ));
+
+        buttonList.add(new BooleanConfigButton(
+                0,
+                width / 2 + 5,
+                height / 6 - 12,
+                "pracfix.config.debugPositionUpdates",
+                () -> PracFix.config.debugPositionUpdates,
+                value -> PracFix.config.debugPositionUpdates = value
+        ));
+
         buttonList.add(new GuiButton(200, width / 2 - 100, height / 6 + 168, I18n.format("gui.done")));
     }
 
