@@ -16,23 +16,24 @@ version = project.mod_version
 group = project.maven_group
 archivesBaseName = project.mod_id
 
-sourceCompatibility = targetCompatibility = '1.8'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 minecraft {
     version = "${project.loader_version}-${project.minecraft_version}"
     runDir = 'run'
-    mappings = 'stable_22'
+    mappings = project.mappings
     makeObfSourceJar = false
 
     clientRunArgs.addAll '--tweakClass', 'org.spongepowered.asm.launch.MixinTweaker'
 
     if (project.hasProperty('token_replace_targets') && !project.token_replace_targets.trim().isEmpty()) {
         project.token_replace_targets.split(',').each { fileName ->
-            replaceIn fileName
+            replaceIn fileName.trim()
         }
 
         ['mod_id', 'mod_name', 'mod_version', 'accepted_minecraft_versions'].each { property ->
-            replace "@${property.toUpperCase()}@", project.hasProperty(property) ? project[property] : null
+            replace "@${property.toUpperCase()}@", project.hasProperty(property) ? project[property] : "@${property.toUpperCase()}@"
         }
     }
 }
@@ -57,15 +58,8 @@ dependencies {
 }
 
 processResources {
-    def propertyMap = (file('src/main/resources/mcmod.info').text =~ /\$\{([\w.]+)}/)
-            .collect { it[1] }
-            .unique()
-            .collectEntries { [(it): project.hasProperty(it) ? project[it] : it] }
-
-    inputs.properties propertyMap
-
     filesMatching('mcmod.info') {
-        expand propertyMap
+        expand project.properties
     }
 }
 
