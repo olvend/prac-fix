@@ -12,7 +12,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
         name = PracFix.MOD_NAME,
         version = PracFix.MOD_VERSION,
         acceptedMinecraftVersions = "@ACCEPTED_MINECRAFT_VERSIONS@",
-        clientSideOnly = true
+        clientSideOnly = true,
+        guiFactory = "io.github.olvend.pracfix.gui.PracFixGuiFactory"
 )
 public class PracFix {
     public static final String MOD_ID = "@MOD_ID@";
