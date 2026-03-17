@@ -8,7 +8,7 @@ public class PracFixConfig {
     private final Configuration config;
 
     public boolean fixPrac;
-    public boolean debug;
+    public boolean debugPositionUpdates;
 
     public PracFixConfig(File configFile) {
         config = new Configuration(configFile);
@@ -17,9 +17,9 @@ public class PracFixConfig {
 
     private void loadConfig() {
         fixPrac = config.getBoolean("fixPrac", Configuration.CATEGORY_GENERAL, true,
-                "Fix prac");
-        debug = config.getBoolean("debug", Configuration.CATEGORY_GENERAL, false,
-                "Sends a message every time the server position is updated by the mod");
+                "Fix inaccurate prac positions");
+        debugPositionUpdates = config.getBoolean("debugPositionUpdates", Configuration.CATEGORY_GENERAL, false,
+                "Sends a debug message when the mod updates your position");
         if (config.hasChanged()) {
             config.save();
         }
@@ -27,7 +27,7 @@ public class PracFixConfig {
 
     public void saveConfig() {
         config.get(Configuration.CATEGORY_GENERAL, "fixPrac", fixPrac).set(fixPrac);
-        config.get(Configuration.CATEGORY_GENERAL, "debug", debug).set(debug);
+        config.get(Configuration.CATEGORY_GENERAL, "debugPositionUpdates", debugPositionUpdates).set(debugPositionUpdates);
         if (config.hasChanged()) {
             config.save();
         }

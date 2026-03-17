@@ -33,7 +33,7 @@ public class EntityPlayerSPMixin {
                 player.posZ == lastReportedPosZ;
 
         if (prac_fix$wasMoving && !isMoving && !isSyncedWithServer) {
-            if (PracFix.config.debug) {
+            if (PracFix.config.debugPositionUpdates) {
                 player.addChatMessage(new ChatComponentText("SYNCED"));
             }
             prac_fix$wasMoving = false;

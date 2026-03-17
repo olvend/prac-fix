@@ -37,7 +37,7 @@ public class PracFixCommand extends CommandBase {
         if (args.length == 0) {
             sender.addChatMessage(new ChatComponentText("§7Usage: " + getCommandUsage(sender)));
             sender.addChatMessage(new ChatComponentText("§7 - Prac fix is currently: " + (PracFix.config.fixPrac ? "§aEnabled" : "§cDisabled")));
-            sender.addChatMessage(new ChatComponentText("§7 - Debug is currently: " + (PracFix.config.debug ? "§aEnabled" : "§cDisabled")));
+            sender.addChatMessage(new ChatComponentText("§7 - Debug is currently: " + (PracFix.config.debugPositionUpdates ? "§aEnabled" : "§cDisabled")));
             return;
         }
 
@@ -51,10 +51,10 @@ public class PracFixCommand extends CommandBase {
                         (PracFix.config.fixPrac ? "§aEnabled" : "§cDisabled")));
                 break;
             case "debug":
-                PracFix.config.debug = !PracFix.config.debug;
+                PracFix.config.debugPositionUpdates = !PracFix.config.debugPositionUpdates;
                 PracFix.config.saveConfig();
                 sender.addChatMessage(new ChatComponentText("§7Debug is now " +
-                        (PracFix.config.debug ? "§aEnabled" : "§cDisabled")));
+                        (PracFix.config.debugPositionUpdates ? "§aEnabled" : "§cDisabled")));
                 break;
             default:
                 sender.addChatMessage(new ChatComponentText("§cUnknown subcommand. \n§cUsage: " + getCommandUsage(sender)));
