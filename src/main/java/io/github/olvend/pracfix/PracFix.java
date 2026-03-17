@@ -1,10 +1,7 @@
 package io.github.olvend.pracfix;
 
-import io.github.olvend.pracfix.command.PracFixCommand;
 import io.github.olvend.pracfix.config.PracFixConfig;
-import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(
@@ -25,10 +22,5 @@ public class PracFix {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         config = new PracFixConfig(event.getSuggestedConfigurationFile());
-    }
-
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
-        ClientCommandHandler.instance.registerCommand(new PracFixCommand());
     }
 }

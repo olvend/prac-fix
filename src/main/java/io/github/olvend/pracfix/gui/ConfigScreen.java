@@ -44,6 +44,7 @@ public class ConfigScreen extends GuiScreen {
         if (!button.enabled) return;
 
         if (button.id == 200) {
+            PracFix.config.saveConfig();
             mc.displayGuiScreen(parentScreen);
         }
     }
