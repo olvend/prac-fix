@@ -81,5 +81,9 @@ jar {
         exclude 'META-INF/*.RSA', 'LICENSE.txt', 'dummyThing'
     }
 
+    from('LICENSE') {
+        rename { "${it}_${project.archivesBaseName}" }
+    }
+
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
